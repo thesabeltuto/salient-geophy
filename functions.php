@@ -5,7 +5,7 @@ define('THEME_DIR', get_template_directory().'-geophy');
 define('THEME_URL', get_template_directory_uri().'-geophy');
 
 // Global variables
-$THEME_VERSION = '1.0.1';
+$THEME_VERSION = '1.0.2';
 $THEME_CSS_VERSION = '1.0.0';
 
 require_once(THEME_DIR.'/framework/admin.php');

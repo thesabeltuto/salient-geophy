@@ -86,10 +86,6 @@ if($headerFormat == 'centered-menu-under-logo') $fullWidthHeader = 'false';
 
 <?php if(!empty($options['google-analytics'])) echo $options['google-analytics']; ?> 
 
-<div id="salient_wm4d_header_widget_wide">
-<?php dynamic_sidebar( 'salient_wm4d_header_widget_wide' ); ?>
-</div>
-
 <?php if(!empty($options['boxed_layout']) && $options['boxed_layout'] == '1') { echo '<div id="boxed">'; } ?>
 
 <?php $using_secondary = (!empty($options['header_layout'])) ? $options['header_layout'] : ' '; 
@@ -152,7 +148,11 @@ if($perm_trans != 1 || $perm_trans == 1 && $bg_header == 'false') { ?> <div id="
 		<div class="container">
 			
 			<div class="row">
-				  
+			
+				<div id="salient_wm4d_header_widget_wide">
+					<?php dynamic_sidebar( 'salient_wm4d_header_widget_wide' ); ?>
+				</div>
+  
 				<div class="col span_3">
 					
 					<a id="logo" href="<?php echo home_url(); ?>" <?php echo $logo_class; ?>>
@@ -298,11 +298,19 @@ if($perm_trans != 1 || $perm_trans == 1 && $bg_header == 'false') { ?> <div id="
 
 
 <?php // INTEGRATE LAYERSLIDER IN SALIENT FOR PROCEDURES
-	if( is_singular('procedures') ) :
+	if( is_page() ) :
 		global $post;
+		echo '<section id="slider" class="procedure-slider">';
 		echo do_shortcode( get_post_meta($post->ID, "layerslider", true));
+		echo '</section>';
+	elseif( is_singular('procedures') ) :
+		global $post;
+		echo '<section id="slider" class="procedure-slider">';
+		echo do_shortcode( get_post_meta($post->ID, "layerslider", true));
+		echo '</section>';
 	endif;
 ?>
+
 
 <div id="ajax-loading-screen" data-disable-fade-on-click="<?php echo (!empty($options['disable-transition-fade-on-click'])) ? $options['disable-transition-fade-on-click'] : '0' ; ?>" data-method="<?php echo (!empty($options['transition-method'])) ? $options['transition-method'] : 'ajax' ; ?>"><span class="loading-icon <?php echo (!empty($options['loading-image-animation']) && !empty($options['loading-image'])) ? $options['loading-image-animation'] : null; ?>"> <?php if(empty($options['loading-image'])) { if(!empty($options['theme-skin']) && $options['theme-skin'] == 'ascend') { echo '<span class="default-loading-icon spin"></span>'; } else { echo '<span class="default-skin-loading-icon"></span>'; } } ?> </span></div>
 <div id="ajax-content-wrap">
