@@ -7,7 +7,7 @@ function create_admin_menu_geophy() {
 }
 
 function salient_geophy_css() {
-	wp_register_style('salient_geophy_css.css', THEME_URL.'/framework/admin/admin.css', '', $GLOBALS['THEME_CSS_VERSION'], '');
+	wp_register_style('salient_geophy_css.css', THEME_CHILD_URL.'/framework/admin/admin.css', '', $GLOBALS['THEME_CSS_VERSION'], '');
 	wp_enqueue_style('salient_geophy_css.css');
 }
 ?>
