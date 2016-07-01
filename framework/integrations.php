@@ -5,6 +5,7 @@ function salient_child_enqueue_styles() {
 }
 
 add_action('wp_head','integratecodes');
+add_action('widgets_init', 'salient_wm4d_header_widget_wide');
 add_action('widgets_init', 'salient_wm4d_footer_widget_wide');
 
 function integratecodes() {
@@ -41,7 +42,10 @@ function salient_wm4d_footer_widget_wide() {
 		'before_title'  => '<h4 class="widgettitle">',
 		'after_title'   => '</h4>',
 	) );
+}
 
+function salient_wm4d_header_widget_wide() {
+	
 	register_sidebar( array(
 		'name'          => 'WM4D Header Widget Wide',
 		'id'            => 'salient_wm4d_header_widget_wide',
