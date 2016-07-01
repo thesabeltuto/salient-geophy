@@ -1,11 +1,12 @@
 <?php 
 // Global define variables
-define('THEME_FILE', __FILE__ );
-define('THEME_DIR', get_template_directory().'-geophy');
-define('THEME_URL', get_template_directory_uri().'-geophy');
+$THEME_CHILD = '-geophy';
+define('THEME_CHILD_FILE', __FILE__ );
+define('THEME_CHILD_DIR', get_template_directory().$THEME_CHILD);
+define('THEME_CHILD_URL', get_template_directory_uri().$THEME_CHILD);
 
 // Global variables
-$THEME_VERSION = '1.0.2';
+$THEME_VERSION = '1.0.3';
 $THEME_CSS_VERSION = '1.0.0';
 
 require_once(THEME_DIR.'/framework/admin.php');
