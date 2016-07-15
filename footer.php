@@ -1,12 +1,7 @@
 <?php 
-global $post;
-?>
-<div id="salient_wm4d_footer_widget_wide">
-<?php dynamic_sidebar( 'salient_wm4d_footer_widget_wide' ); ?>
-</div>
-<?php
 
-$options = get_option('salient'); 
+$options = get_nectar_theme_options(); 
+global $post;
 $cta_link = ( !empty($options['cta-btn-link']) ) ? $options['cta-btn-link'] : '#';
 $using_footer_widget_area = (!empty($options['enable-main-footer-area']) && $options['enable-main-footer-area'] == 1) ? 'true' : 'false';
 $disable_footer_copyright = (!empty($options['disable-copyright-footer-area']) && $options['disable-copyright-footer-area'] == 1) ? 'true' : 'false';
@@ -17,6 +12,11 @@ $midnight_non_reveal = ($footer_reveal != 'false') ? null : 'data-midnight="ligh
 $exclude_pages = (!empty($options['exclude_cta_pages'])) ? $options['exclude_cta_pages'] : array(); 
 
 ?>
+
+<div id="salient_wm4d_footer_widget_wide">
+<?php dynamic_sidebar( 'salient_wm4d_footer_widget_wide' ); ?>
+</div>
+
 <div id="footer-outer" <?php echo $midnight_non_reveal; ?> data-using-widget-area="<?php echo $using_footer_widget_area; ?>">
 	
 	<?php if(!empty($options['cta-text']) && current_page_url() != $cta_link && !in_array($post->ID, $exclude_pages)) {  
@@ -212,7 +212,7 @@ if($sideWidgetArea == '1') {
 		  <?php } 
 		  
 		   //widget area
-		   if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Slide Out Widget Area') ) : elseif(!has_nav_menu('off_canvas_nav') && $userSetSideWidgetArea != 'off') : ?>	
+		   if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Off Canvas Menu') ) : elseif(!has_nav_menu('off_canvas_nav') && $userSetSideWidgetArea != 'off') : ?>	
 		      <div class="widget">			
 			 	 <h4 class="widgettitle">Side Widget Area</h4>
 			 	 <p class="no-widget-added"><a href="<?php echo admin_url('widgets.php'); ?>">Click here to assign widgets to this area.</a></p>
@@ -260,7 +260,7 @@ if($sideWidgetArea == '1') {
 <?php if(!empty($options['boxed_layout']) && $options['boxed_layout'] == '1') { echo '</div>'; } ?>
 
 <?php if(!empty($options['back-to-top']) && $options['back-to-top'] == 1) { ?>
-	<a id="to-top"><i class="icon-angle-up"></i></a>
+	<a id="to-top" class="<?php if(!empty($options['back-to-top-mobile']) && $options['back-to-top-mobile'] == 1) echo 'mobile-enabled'; ?>"><i class="icon-angle-up"></i></a>
 <?php } ?>
 
 <?php wp_footer(); ?>	
