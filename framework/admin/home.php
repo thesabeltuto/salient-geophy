@@ -2,7 +2,7 @@
 function salient_geophy_support() {
 	?>
     <div class="salient_geophy_wm4d_wrap">
-    <h1>Salient Theme and WM4D Options Integration Support</h1>
+    <h1>Salient Geophy Theme and WM4D Options Integration Support</h1>
     <div id="wm4d_nav">
         <ul>
             <li id="salient_geophy_wm4d_li0" class="active"><a href="?page=salient_geophy_support">Home</a></li>
@@ -18,7 +18,7 @@ function salient_geophy_support() {
     <hr />
     <p>Inception, I know...</p>
 
-    <h3>Salient-WM4D Integration Shortcodes</h3>
+    <h3>Salient and WM4D Integration Shortcodes</h3>
     <hr />
     <p>Allowed WM4D Shortcodes only work within <strong>( title="", phone="", location="", url="" )</strong> tags.<br />
     	Otherwise, use the original shortcode stated in the WM4D Options Plugin.<br />

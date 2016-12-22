@@ -7,28 +7,8 @@ function salient_child_enqueue_styles() {
    		wp_enqueue_style(  'salient-rtl',  get_template_directory_uri(). '/rtl.css', array(), '1', 'screen' );
 }
 
-add_action('wp_head','integratecodes');
 add_action('widgets_init', 'salient_wm4d_footer_widget_wide');
 
-function integratecodes() {
-?>
-	<script>
-    (function($) {	
-		$(document).ready(function() {
-			var offer = $('p.datetoday').html();
-			var date = new Date().toDateString();
-			var fday = date.split(" ")[0];
-			var month = date.split(" ")[1];
-			var day = date.split(" ")[2];
-			var year = date.split(" ")[3];
-			var newdate =  fday+', '+month+' '+day+', '+year;
-			$('p.datetoday').html(offer+' '+newdate);
-	
-		});
-    })(jQuery);
-    </script>
-<?php
-}
 
 /**
  * Register our sidebars and widgetized areas.
